@@ -16,4 +16,4 @@ Welcome to my personal website.
 
 I am a recent MSc graduate in Computational Neuroscience looking to start my career in machine learning/data science.
 
-You an find a longer summary of me in the [about](/about) page, take a look at my [CV](/assets/CV_Huseyin_Camalan.pdf), or browse through my [previous projects](/projects).
+You can find a longer summary in the [about](/about) page, take a look at my [CV](/assets/CV_Huseyin_Camalan.pdf), or browse through my [previous projects](/projects).
