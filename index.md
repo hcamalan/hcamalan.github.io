@@ -10,6 +10,8 @@ layout: home
 
 ![profile](/assets/profile2.jpg)
 
+#### Please note: this site is still under construction (as of December 5, 2020)
+
 Welcome to my personal website.
 
 I am a recent MSc graduate in Computational Neuroscience looking to start my career in machine learning/data science.
