@@ -7,13 +7,14 @@
 
 layout: home
 ---
-
 ![profile](/assets/profile2.jpg)
-
-#### Please note: this site is still under construction (as of December 5, 2020)
 
 Welcome to my personal website.
 
-I am a recent MSc graduate in Computational Neuroscience looking to start my career in machine learning/data science.
+I recently graduated with an MSc degree in Computational Neuroscience, organized jointly by [BCCN Berlin](https://www.bccn-berlin.de/) and [TU Berlin](https://www.tu.berlin/en/). I am currently looking to start my career in machine learning/data science.
 
 You can find a longer summary in the [about](/about) page, take a look at my [CV](/assets/CV_Huseyin_Camalan.pdf), or browse through my [previous projects](/projects).
+
+
+<sub><sup>Last edit: Jan 5, 2020</sup></sub>
+
