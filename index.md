@@ -11,10 +11,10 @@ layout: home
 
 Welcome to my personal website.
 
-I recently graduated with an MSc degree in Computational Neuroscience, organized jointly by [BCCN Berlin](https://www.bccn-berlin.de/) and [TU Berlin](https://www.tu.berlin/en/). I am currently looking to start my career in machine learning/data science.
+In early 2020, I graduated with a MSc degree in Computational Neuroscience, organized jointly by [BCCN Berlin](https://www.bccn-berlin.de/) and [TU Berlin](https://www.tu.berlin/en/). I am currently working as a Technology Consulting Analyst at Accenture.
 
 You can find a longer summary in the [about](/about) page, take a look at my [CV](/assets/CV_Huseyin_Camalan.pdf), or browse through my [previous projects](/projects).
 
 
-<sub><sup>Last edit: Jan 5, 2020</sup></sub>
+<sub><sup>Last edit: Oct 14, 2021</sup></sub>
 
