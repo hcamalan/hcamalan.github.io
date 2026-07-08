@@ -1,0 +1,52 @@
+---
+const navItems = [
+  { href: '/about', label: 'About' },
+  { href: '/cv', label: 'CV' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog', label: 'Blog' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header
+  data-site-header
+  class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 px-6 py-4 backdrop-blur-md transition-colors duration-300 border-b border-transparent [&.scrolled]:border-line [&.scrolled]:bg-bg/80"
+>
+  <a href="/" class="flex items-baseline gap-2 font-display text-lg font-semibold tracking-tight" aria-label="Hüseyin Camalan — home">
+    <span class="inline-block h-2 w-2 rounded-full bg-accent translate-y-[-2px]"></span>
+    <span class="hidden sm:inline">Hüseyin Camalan</span>
+    <span class="sm:hidden">HC</span>
+  </a>
+
+  <nav class="flex items-center gap-3 sm:gap-7" aria-label="Primary">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'font-mono text-[11px] sm:text-xs uppercase tracking-widest transition-colors',
+            path === item.href ? 'text-ink' : 'text-ink-3 hover:text-ink',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+
+    <button
+      type="button"
+      data-theme-toggle
+      aria-label="Toggle dark mode"
+      class="grid h-9 w-9 place-items-center rounded-full border border-line text-ink-2 transition-colors hover:border-ink hover:text-ink"
+    >
+      <svg class="h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+      <svg class="hidden h-4 w-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </nav>
+</header>

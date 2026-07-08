@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Card from '../../../components/Card.astro';
+import { getPosts, getCategories, slugifyCategory } from '../../../lib/blog';
+import defaultCover from '../../../assets/photos/blog-notebook.jpg';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.map((c) => ({ params: { category: c.slug } }));
+}
+
+const { category } = Astro.params;
+const posts = (await getPosts()).filter((p) => slugifyCategory(p.data.category) === category);
+const label = posts[0]?.data.category ?? category;
+
+const dateFormatter = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout title={`${label} · Blog`} description={`Posts filed under ${label}.`}>
+  <section class="px-6 pb-10 pt-40 sm:px-10">
+    <div class="mx-auto max-w-5xl">
+      <a href="/blog" class="font-mono text-xs uppercase tracking-widest text-ink-3 hover:text-ink">← All posts</a>
+      <p class="kicker mb-6 mt-6">Category</p>
+      <h1 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">{label}</h1>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 sm:px-10">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          posts.map((post) => (
+            <Card
+              href={`/blog/${post.id}`}
+              title={post.data.title}
+              description={post.data.description}
+              image={post.data.cover ?? defaultCover}
+              imageAlt={post.data.coverAlt ?? post.data.title}
+              meta={`${post.data.category} · ${dateFormatter.format(post.data.date)}`}
+              tags={post.data.tags}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

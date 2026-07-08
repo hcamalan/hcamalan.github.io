@@ -1,0 +1,23 @@
+---
+import { social } from '../data/social';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line px-6 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
+    <p class="font-mono text-xs uppercase tracking-widest text-ink-3">© {year} Hüseyin Camalan · Berlin</p>
+
+    <div class="flex items-center gap-6">
+      {
+        social.map((s) => (
+          <a href={s.href} class="font-mono text-xs uppercase tracking-widest text-ink-3 transition-colors hover:text-ink" target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noopener' : undefined}>
+            {s.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a href="/attributions" class="font-mono text-[11px] uppercase tracking-widest text-ink-3/70 hover:text-ink-3">Photo credits</a>
+  </div>
+</footer>

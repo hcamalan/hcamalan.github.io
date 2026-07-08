@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { slugifyCategory } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFormatter = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.cover?.src}>
+  <article class="px-6 pb-24 pt-40 sm:px-10">
+    <div class="mx-auto max-w-2xl">
+      <a
+        href={`/blog/category/${slugifyCategory(post.data.category)}`}
+        class="font-mono text-xs uppercase tracking-widest text-ink-3 hover:text-ink"
+      >
+        {post.data.category}
+      </a>
+      <h1 class="mt-6 font-display text-3xl font-semibold leading-tight sm:text-5xl">{post.data.title}</h1>
+      <p class="mt-4 font-mono text-xs uppercase tracking-widest text-ink-3">{dateFormatter.format(post.data.date)}</p>
+
+      <div class="prose prose-neutral dark:prose-invert mt-12 max-w-none prose-headings:font-display prose-a:text-accent-ink">
+        <Content />
+      </div>
+
+      {
+        post.data.tags.length > 0 && (
+          <div class="mt-14 flex flex-wrap gap-2 border-t border-line pt-8">
+            {post.data.tags.map((tag) => (
+              <span class="rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-ink-3">{tag}</span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </article>
+</BaseLayout>

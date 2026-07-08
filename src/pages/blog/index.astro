@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import { getPosts, getCategories } from '../../lib/blog';
+import defaultCover from '../../assets/photos/blog-notebook.jpg';
+
+const posts = await getPosts();
+const categories = await getCategories();
+
+const dateFormatter = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout title="Blog" description="Notes on IT transformation, PMO work, building side projects, and everything in between.">
+  <section class="px-6 pb-10 pt-40 sm:px-10">
+    <div class="mx-auto max-w-5xl">
+      <p class="kicker mb-6">Blog</p>
+      <h1 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">Writing</h1>
+      <p class="mt-6 max-w-xl text-lg text-ink-2">Notes on transformation work, tools I build, and whatever else is on my mind.</p>
+
+      {
+        categories.length > 0 && (
+          <div class="mt-10 flex flex-wrap gap-2">
+            <a href="/blog" class="rounded-full bg-ink px-4 py-2 font-mono text-xs uppercase tracking-widest text-bg">
+              All
+            </a>
+            {categories.map((c) => (
+              <a
+                href={`/blog/category/${c.slug}`}
+                class="rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink-2 transition-colors hover:border-ink hover:text-ink"
+              >
+                {c.label} <span class="text-ink-3">({c.count})</span>
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 sm:px-10">
+    <div class="mx-auto max-w-5xl">
+      {
+        posts.length === 0 ? (
+          <p class="text-ink-2">No posts yet — check back soon.</p>
+        ) : (
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <Card
+                href={`/blog/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                image={post.data.cover ?? defaultCover}
+                imageAlt={post.data.coverAlt ?? post.data.title}
+                meta={`${post.data.category} · ${dateFormatter.format(post.data.date)}`}
+                tags={post.data.tags}
+              />
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

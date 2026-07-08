@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Tile from '../components/Tile.astro';
+import { Image } from 'astro:assets';
+
+import heroImage from '../assets/photos/hero-berlin.jpg';
+import aboutImage from '../assets/photos/about-notebook.jpg';
+import cvImage from '../assets/photos/cv-architecture.jpg';
+import projectsImage from '../assets/photos/projects-code.jpg';
+import blogImage from '../assets/photos/blog-notebook.jpg';
+
+const tiles = [
+  {
+    href: '/about',
+    title: 'About',
+    description: 'A little about who I am, outside of job titles.',
+    image: aboutImage,
+    imageAlt: 'Open notebook and pencils on a wooden desk',
+  },
+  {
+    href: '/cv',
+    title: 'CV',
+    description: 'Experience, education, and the skills in between.',
+    image: cvImage,
+    imageAlt: 'Abstract black and white architectural photograph',
+  },
+  {
+    href: '/projects',
+    title: 'Projects',
+    description: 'Things I have built, starting with ChronoKanban.',
+    image: projectsImage,
+    imageAlt: 'Close-up of code displayed on a computer screen',
+  },
+  {
+    href: '/blog',
+    title: 'Blog',
+    description: 'Notes on transformation work, tools, and everything else.',
+    image: blogImage,
+    imageAlt: 'Handwritten notes on a desk in low light',
+  },
+];
+---
+
+<BaseLayout title="Hüseyin Camalan" description="Hüseyin Camalan — IT transformation consultant based in Berlin. Explore my CV, projects, and writing.">
+  <section class="relative flex min-h-[80vh] items-end overflow-hidden">
+    <Image
+      src={heroImage}
+      alt="Reflection of sky and stairwell in a modern glass building facade"
+      class="absolute inset-0 h-full w-full object-cover"
+      widths={[800, 1400, 2000]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+
+    <div class="relative w-full px-6 pb-20 pt-40 sm:px-10">
+      <div class="mx-auto max-w-5xl">
+        <p class="mb-6 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-white/70">
+          <span class="h-px w-6 bg-white/70"></span>
+          IT Consultant · Berlin
+        </p>
+        <h1 class="font-display text-5xl font-semibold leading-[1.02] text-white sm:text-7xl">
+          Hüseyin Camalan
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-white/80">
+          I help teams get through complex digital transformation projects — coordinating people, planning, and the things in between.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 sm:px-10 sm:py-24">
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
+      {tiles.map((tile) => <Tile {...tile} />)}
+    </div>
+  </section>
+</BaseLayout>

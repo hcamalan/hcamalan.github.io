@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { cv } from '../data/cv';
+---
+
+<BaseLayout title="CV" description="Hüseyin Camalan's CV — IT transformation consulting, PMO, and project leadership experience.">
+  <section class="px-6 pb-16 pt-40 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <p class="kicker" data-cv="eyebrow"></p>
+
+        <div class="flex items-center gap-3">
+          <div class="inline-flex overflow-hidden rounded-full border border-line font-mono text-[11px] uppercase tracking-widest">
+            <button type="button" data-lang="en" class="px-3 py-1.5 transition-colors">EN</button>
+            <button type="button" data-lang="de" class="px-3 py-1.5 transition-colors">DE</button>
+          </div>
+          <a
+            href="/cv/Huseyin-Camalan-CV.pdf"
+            download
+            class="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest text-bg transition-colors hover:bg-accent"
+          >
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <h1 class="mt-6 font-display text-4xl font-semibold leading-[1.05] sm:text-6xl" data-cv="name"></h1>
+      <p class="mt-6 max-w-xl text-lg text-ink-2" data-cv="tagline"></p>
+      <div class="mt-10 grid grid-cols-3 gap-6 border-t border-line pt-6" data-cv="meta"></div>
+    </div>
+  </section>
+
+  <section id="about" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <p class="kicker mb-6" data-cv="about-kicker"></p>
+      <h2 class="font-display text-2xl font-semibold sm:text-3xl" data-cv="about-title"></h2>
+      <div class="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-ink-2" data-cv="about-body"></div>
+    </div>
+  </section>
+
+  <section id="experience" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <p class="kicker mb-3" data-cv="experience-kicker"></p>
+      <h2 class="mb-12 font-display text-2xl font-semibold sm:text-3xl" data-cv="experience-title"></h2>
+      <div data-cv="experience-list"></div>
+    </div>
+  </section>
+
+  <section id="education" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <p class="kicker mb-10" data-cv="education-kicker"></p>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-3" data-cv="education-list"></div>
+    </div>
+  </section>
+
+  <section id="skills" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <p class="kicker mb-3" data-cv="skills-kicker"></p>
+      <h2 class="mb-12 font-display text-2xl font-semibold sm:text-3xl" data-cv="skills-title"></h2>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
+        <div data-cv="skills-groups"></div>
+        <aside class="flex flex-col gap-10">
+          <div>
+            <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink-3" data-cv="certs-title"></h3>
+            <ul class="border-t border-line" data-cv="certs"></ul>
+          </div>
+          <div>
+            <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink-3" data-cv="langs-title"></h3>
+            <ul class="border-t border-line" data-cv="langs"></ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto max-w-4xl">
+      <p class="kicker mb-10" data-cv="interests-kicker"></p>
+      <div class="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2" data-cv="interests-list"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="border-t border-line px-6 py-16 sm:px-10">
+    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr]">
+      <div>
+        <p class="kicker mb-6" data-cv="contact-kicker"></p>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl" data-cv="contact-title"></h2>
+        <p class="mt-6 max-w-md text-base leading-relaxed text-ink-2" data-cv="contact-body"></p>
+        <a
+          href="#"
+          data-cv="contact-cta"
+          class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-accent"
+        ></a>
+      </div>
+      <div class="flex flex-col border-t border-line" data-cv="contact-links"></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline define:vars={{ cvData: cv }}>
+  const LANG_KEY = 'hc-cv-lang';
+  let currentLang = 'en';
+  try {
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved === 'en' || saved === 'de') currentLang = saved;
+    else if ((navigator.language || '').toLowerCase().startsWith('de')) currentLang = 'de';
+  } catch (_) {}
+
+  function q(sel) {
+    return document.querySelector(sel);
+  }
+  function qa(sel) {
+    return Array.from(document.querySelectorAll(sel));
+  }
+
+  function render() {
+    const L = cvData[currentLang];
+
+    q('[data-cv=eyebrow]').textContent = L.hero.eyebrow;
+    q('[data-cv=name]').textContent = L.hero.name;
+    q('[data-cv=tagline]').textContent = L.hero.tagline;
+    q('[data-cv=meta]').innerHTML = L.hero.meta
+      .map(
+        (m) => `
+      <div>
+        <span class="block font-mono text-[10px] uppercase tracking-widest text-ink-3 mb-2">${m.label}</span>
+        <span class="text-sm text-ink">${m.value}</span>
+      </div>`
+      )
+      .join('');
+
+    q('[data-cv=about-kicker]').textContent = L.about.kicker;
+    q('[data-cv=about-title]').textContent = L.about.title;
+    q('[data-cv=about-body]').innerHTML = L.about.body.map((p) => `<p>${p}</p>`).join('');
+
+    q('[data-cv=experience-kicker]').textContent = L.experience.kicker;
+    q('[data-cv=experience-title]').textContent = L.experience.title;
+    q('[data-cv=experience-list]').innerHTML = L.experience.items
+      .map((it) => {
+        const isCurrent = it.tag && /current|aktuell/i.test(it.tag);
+        const projects = it.projects
+          ? `<div class="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">${it.projects
+              .map(
+                (p) => `
+              <div class="bg-bg p-5">
+                <div class="font-medium text-ink">${p.name}</div>
+                <div class="mt-1 font-mono text-[10px] uppercase tracking-wide text-accent-ink">${p.client}</div>
+                <p class="mt-3 text-sm leading-relaxed text-ink-2">${p.note}</p>
+              </div>`
+              )
+              .join('')}</div>`
+          : '';
+        return `
+        <article class="grid grid-cols-1 gap-4 border-t border-line py-10 sm:grid-cols-[160px_1fr] sm:gap-10 first:border-t-ink">
+          <div>
+            <div class="font-mono text-[11px] uppercase tracking-widest text-ink-3">${it.period}</div>
+            <span class="mt-3 inline-block rounded border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${
+              isCurrent ? 'border-accent bg-accent text-bg' : 'border-line text-ink-2'
+            }">${it.tag}</span>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-semibold sm:text-2xl">${it.role}</h3>
+            <div class="mt-1 font-mono text-xs uppercase tracking-wide text-ink-3">${it.org}</div>
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-2">${it.body}</p>
+            ${projects}
+          </div>
+        </article>`;
+      })
+      .join('');
+
+    q('[data-cv=education-kicker]').textContent = L.education.kicker;
+    q('[data-cv=education-list]').innerHTML = L.education.items
+      .map(
+        (it) => `
+      <div class="rounded-2xl border border-line p-8 transition-colors hover:border-ink">
+        <div class="mb-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ink-3">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>${it.period}
+        </div>
+        <h3 class="font-display text-lg font-semibold">${it.school}</h3>
+        <div class="mt-1 text-sm text-ink-2">${it.degree}</div>
+        <div class="mt-4 border-t border-dashed border-line pt-4 text-xs text-ink-3">${it.note}</div>
+      </div>`
+      )
+      .join('');
+
+    q('[data-cv=skills-kicker]').textContent = L.skills.kicker;
+    q('[data-cv=skills-title]').textContent = L.skills.title;
+    q('[data-cv=skills-groups]').innerHTML = L.skills.groups
+      .map(
+        (g) => `
+      <div class="mb-10">
+        <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink-3">${g.name}</h3>
+        <div class="flex flex-wrap gap-2">
+          ${g.items.map((i) => `<span class="rounded-full border border-line px-3 py-1.5 text-sm text-ink-2">${i}</span>`).join('')}
+        </div>
+      </div>`
+      )
+      .join('');
+    q('[data-cv=certs-title]').textContent = L.skills.certs.title;
+    q('[data-cv=certs]').innerHTML = L.skills.certs.items
+      .map((c) => `<li class="border-b border-line py-3 text-sm text-ink">${c}</li>`)
+      .join('');
+    q('[data-cv=langs-title]').textContent = L.skills.languages.title;
+    q('[data-cv=langs]').innerHTML = L.skills.languages.items
+      .map(
+        (l) => `
+      <li class="flex items-center justify-between border-b border-line py-3">
+        <span class="font-medium text-ink">${l.lang}</span>
+        <span class="rounded border border-accent px-2 py-0.5 font-mono text-[11px] text-accent-ink">${l.level}</span>
+      </li>`
+      )
+      .join('');
+
+    q('[data-cv=interests-kicker]').textContent = L.interests.kicker;
+    q('[data-cv=interests-list]').innerHTML = L.interests.items
+      .map(
+        (it, idx) => `
+      <div class="bg-bg p-8">
+        <span class="mb-6 block font-mono text-xs text-ink-3">0${idx + 1}</span>
+        <h3 class="font-display text-lg font-semibold">${it.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-2">${it.note}</p>
+      </div>`
+      )
+      .join('');
+
+    q('[data-cv=contact-kicker]').textContent = L.contact.kicker;
+    q('[data-cv=contact-title]').textContent = L.contact.title;
+    q('[data-cv=contact-body]').textContent = L.contact.body;
+    const cta = q('[data-cv=contact-cta]');
+    cta.textContent = L.contact.cta;
+    cta.href = `mailto:${L.contact.email}`;
+    q('[data-cv=contact-links]').innerHTML = L.contact.links
+      .map((l) =>
+        l.href
+          ? `<a href="${l.href}" target="${l.href.startsWith('http') ? '_blank' : '_self'}" rel="${
+              l.href.startsWith('http') ? 'noopener' : ''
+            }" class="group flex items-center justify-between border-b border-line py-5 transition-[padding] hover:pl-2">
+               <span class="font-mono text-xs uppercase tracking-widest text-ink-3">${l.label}</span>
+               <span class="font-medium text-ink group-hover:text-accent-ink">${l.value}</span>
+             </a>`
+          : `<div class="flex items-center justify-between border-b border-line py-5">
+               <span class="font-mono text-xs uppercase tracking-widest text-ink-3">${l.label}</span>
+               <span class="font-medium text-ink">${l.value}</span>
+             </div>`
+      )
+      .join('');
+
+    qa('[data-lang]').forEach((b) => {
+      const active = b.dataset.lang === currentLang;
+      b.classList.toggle('bg-ink', active);
+      b.classList.toggle('text-bg', active);
+      b.classList.toggle('text-ink-3', !active);
+    });
+  }
+
+  qa('[data-lang]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = btn.dataset.lang;
+      if (next === currentLang) return;
+      currentLang = next;
+      try {
+        localStorage.setItem(LANG_KEY, next);
+      } catch (_) {}
+      render();
+    });
+  });
+
+  render();
+</script>

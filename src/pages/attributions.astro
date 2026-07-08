@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const photos = [
+  {
+    used: 'Homepage hero',
+    title: 'A building that has a lot of windows on it',
+    photographer: 'Michael (@polygonglider)',
+    href: 'https://unsplash.com/photos/48yI_ZyzuLo',
+  },
+  {
+    used: 'About tile',
+    title: 'Open notebook with pen and pencils on desk',
+    photographer: 'Clay Banks',
+    href: 'https://unsplash.com/photos/open-notebook-with-pen-and-pencils-on-desk-n9AaeihA9HI',
+  },
+  {
+    used: 'CV tile',
+    title: 'Abstract view of modern building architecture from below',
+    photographer: 'Mike Hindle',
+    href: 'https://unsplash.com/photos/abstract-view-of-modern-building-architecture-from-below-pqZf06x3yuY',
+  },
+  {
+    used: 'Projects tile',
+    title: 'Code displayed on computer screens',
+    photographer: 'Jakub Żerdzicki',
+    href: 'https://unsplash.com/photos/code-displayed-on-computer-screens-v-jFS1AsHXo',
+  },
+  {
+    used: 'Blog tile & default post cover',
+    title: 'A notebook with writing on it sitting on a desk',
+    photographer: 'Tai Bui',
+    href: 'https://unsplash.com/photos/a-notebook-with-writing-on-it-sitting-on-a-desk-pUmN-dBCKQk',
+  },
+  {
+    used: 'ChronoKanban project card',
+    title: 'Colorful sticky notes pinned to board',
+    photographer: 'Patrick Perkins',
+    href: 'https://unsplash.com/photos/ETRPjvb0KM0',
+  },
+];
+---
+
+<BaseLayout title="Photo credits" description="Attribution for photography used on this site.">
+  <section class="px-6 pb-24 pt-40 sm:px-10">
+    <div class="mx-auto max-w-2xl">
+      <p class="kicker mb-6">Credits</p>
+      <h1 class="font-display text-3xl font-semibold sm:text-4xl">Photo attributions</h1>
+      <p class="mt-6 text-base leading-relaxed text-ink-2">
+        All photography on this site is sourced from <a href="https://unsplash.com" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-accent">Unsplash</a>,
+        free to use under the <a href="https://unsplash.com/license" target="_blank" rel="noopener" class="underline decoration-line underline-offset-4 hover:decoration-accent">Unsplash License</a>. Credited here, though attribution isn't required.
+      </p>
+
+      <div class="mt-10 flex flex-col border-t border-line">
+        {
+          photos.map((p) => (
+            <div class="border-b border-line py-5">
+              <div class="font-mono text-[11px] uppercase tracking-widest text-ink-3">{p.used}</div>
+              <a href={p.href} target="_blank" rel="noopener" class="mt-1 block font-medium text-ink hover:text-accent-ink">
+                "{p.title}" — {p.photographer}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

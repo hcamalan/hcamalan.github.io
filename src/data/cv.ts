@@ -1,0 +1,458 @@
+// CV content, ported from the previous single-page site (src/content.js).
+// Content is unchanged — only presentation was rebuilt.
+
+export interface CVProject {
+  name: string;
+  client: string;
+  note: string;
+}
+
+export interface CVExperienceItem {
+  period: string;
+  role: string;
+  org: string;
+  tag: string;
+  body: string;
+  projects?: CVProject[];
+}
+
+export interface CVEducationItem {
+  school: string;
+  degree: string;
+  period: string;
+  note: string;
+}
+
+export interface CVSkillGroup {
+  name: string;
+  items: string[];
+}
+
+export interface CVLanguage {
+  lang: string;
+  level: string;
+}
+
+export interface CVInterest {
+  title: string;
+  note: string;
+}
+
+export interface CVContent {
+  nav: {
+    about: string;
+    experience: string;
+    education: string;
+    skills: string;
+    contact: string;
+  };
+  hero: {
+    eyebrow: string;
+    name: string;
+    tagline: string;
+    meta: { label: string; value: string }[];
+  };
+  about: {
+    kicker: string;
+    title: string;
+    body: string[];
+  };
+  experience: {
+    kicker: string;
+    title: string;
+    items: CVExperienceItem[];
+  };
+  education: {
+    kicker: string;
+    items: CVEducationItem[];
+  };
+  skills: {
+    kicker: string;
+    title: string;
+    groups: CVSkillGroup[];
+    certs: { title: string; items: string[] };
+    languages: { title: string; items: CVLanguage[] };
+  };
+  interests: {
+    kicker: string;
+    items: CVInterest[];
+  };
+  contact: {
+    kicker: string;
+    title: string;
+    body: string;
+    email: string;
+    cta: string;
+    links: { label: string; value: string; href?: string }[];
+  };
+}
+
+export const cv: Record<'en' | 'de', CVContent> = {
+  en: {
+    nav: {
+      about: 'About',
+      experience: 'Experience',
+      education: 'Education',
+      skills: 'Expertise',
+      contact: 'Contact',
+    },
+    hero: {
+      eyebrow: 'IT Consultant · Berlin',
+      name: 'Hüseyin Camalan',
+      tagline:
+        'I help teams get through complex digital transformation projects — coordinating people, planning, and the things in between.',
+      meta: [
+        { label: 'Based in', value: 'Berlin, DE' },
+        { label: 'Status', value: 'Open to new roles' },
+        { label: 'Focus', value: 'IT transformation, PMO' },
+      ],
+    },
+    about: {
+      kicker: 'About',
+      title: 'Short version',
+      body: [
+        'I spent four years at Accenture in Berlin, working on IT transformation programmes across industries — most recently in a €40M IT carve-out for a global industrial group, and earlier on ESG reporting for a European pharma company.',
+        'My background is in psychology and computational neuroscience, with some time spent in data science. A bit of a mix, but it helps with the messy, people-heavy side of transformation work.',
+      ],
+    },
+    experience: {
+      kicker: 'Experience',
+      title: "Where I've worked",
+      items: [
+        {
+          period: 'Sep 2025 — Present',
+          role: 'Professional reorientation',
+          org: 'Berlin',
+          tag: 'Current',
+          body: 'Looking for the next role — open to consulting, PMO and transformation work in Europe.',
+        },
+        {
+          period: 'Feb 2025 — Aug 2025',
+          role: 'Sabbatical',
+          org: '—',
+          tag: 'Interlude',
+          body: 'Six months off for travel and a reset.',
+        },
+        {
+          period: 'Jul 2021 — Feb 2025',
+          role: 'Technology Consulting Analyst',
+          org: 'Accenture GmbH, Berlin',
+          tag: '3y 8m',
+          body: 'Coordination of IT transformation projects with direct client contact. Focused on governance, project management, timelines and requirements, plus proposals and internal presentations.',
+          projects: [
+            {
+              name: 'IT Carve-out',
+              client: 'Global industrial group',
+              note: 'Part of the PMO in a €40M programme spanning six projects. Often acted as the communication bridge between programme management and project teams.',
+            },
+            {
+              name: 'Digital Transformation',
+              client: 'Large European e-commerce platform',
+              note: 'Designed and rolled out the end-to-end test strategy for 100+ decentralised teams, with a focus on automation and documentation.',
+            },
+            {
+              name: 'ESG Conception',
+              client: 'European pharmaceutical company',
+              note: 'Project manager and data architect for ESG reporting. Built a workaround for calculating ESG metrics where source data was incomplete.',
+            },
+          ],
+        },
+        {
+          period: 'Mar 2018 — Apr 2020',
+          role: 'Student Research Assistant',
+          org: 'Charité & Fraunhofer HHI, Berlin',
+          tag: '2y',
+          body: 'Research into machine-learning applications across different problem spaces. Co-author on a paper on VR user behaviour (nominated for Best Paper).',
+        },
+      ],
+    },
+    education: {
+      kicker: 'Education',
+      items: [
+        {
+          school: 'TU Berlin',
+          degree: 'M.Sc. Computational Neuroscience',
+          period: 'Pending defense',
+          note: 'Thesis: Machine Learning in Dementia Prediction. Grade 1.06 — top of cohort.',
+        },
+        {
+          school: 'Bilkent University',
+          degree: 'B.A. Psychology',
+          period: '2008 — 2013',
+          note: 'Grade 1.90.',
+        },
+        {
+          school: 'Reuter Management Training',
+          degree: 'Project Management Certification (IPMA-C)',
+          period: 'Dec 2025 — Apr 2026',
+          note: 'In progress.',
+        },
+      ],
+    },
+    skills: {
+      kicker: 'Skills',
+      title: 'What I do',
+      groups: [
+        {
+          name: 'Project leadership',
+          items: [
+            'Project management',
+            'Project planning',
+            'PMO & governance',
+            'Reporting & decision-ready artefacts',
+            'Coordination of large, complex endeavours',
+            'Agile delivery',
+            'Requirements management',
+            'Communication planning',
+            'Conflict resolution',
+            'Workshop facilitation',
+          ],
+        },
+        {
+          name: 'Analytical & domain',
+          items: ['Data analysis & forecasting', 'End-to-end testing', 'ESG', 'IT transformation'],
+        },
+        {
+          name: 'Tools',
+          items: ['MS PowerPoint', 'Python', 'Mural & Miro', 'Jira & Xray', 'SQL · Snowflake', 'MS Project'],
+        },
+      ],
+      certs: {
+        title: 'Certifications',
+        items: [
+          'Google Project Management',
+          'ICAgile Certified Professional',
+          'Workera Data Scientist',
+          'AWS Cloud Practitioner',
+        ],
+      },
+      languages: {
+        title: 'Languages',
+        items: [
+          { lang: 'English', level: 'C2' },
+          { lang: 'German', level: 'C1' },
+          { lang: 'Turkish', level: 'C2' },
+          { lang: 'French', level: 'A1' },
+        ],
+      },
+    },
+    interests: {
+      kicker: 'Outside of work',
+      items: [
+        {
+          title: 'Forró dance',
+          note: 'Teaching and organising since 2019. Steering committee of Tome Forró Berlin e.V. since 2025.',
+        },
+        {
+          title: 'Ultimate Frisbee',
+          note: 'Playing since 2008. Competed at the World Championships in 2014.',
+        },
+        {
+          title: 'Strength training & bouldering',
+          note: 'In the gym and on the wall since 2015.',
+        },
+        {
+          title: 'Specialty coffee',
+          note: 'Chasing clean cups since 2019.',
+        },
+      ],
+    },
+    contact: {
+      kicker: 'Contact',
+      title: 'Get in touch',
+      body: 'Currently open to consulting, PMO and IT transformation roles — full-time or project-based. Email is the fastest way to reach me.',
+      email: 'huseyin@camalan.de',
+      cta: 'Say hello',
+      links: [
+        { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
+        { label: 'Email', value: 'huseyin@camalan.de', href: 'mailto:huseyin@camalan.de' },
+        { label: 'Phone', value: '+49 176 4334 6503', href: 'tel:+4917643346503' },
+        { label: 'Location', value: '10969 Berlin, DE' },
+      ],
+    },
+  },
+
+  de: {
+    nav: {
+      about: 'Über mich',
+      experience: 'Erfahrung',
+      education: 'Bildung',
+      skills: 'Expertise',
+      contact: 'Kontakt',
+    },
+    hero: {
+      eyebrow: 'IT-Berater · Berlin',
+      name: 'Hüseyin Camalan',
+      tagline:
+        'Ich helfe Teams durch komplexe Digitalisierungsprojekte — mit Koordination, Planung und allem dazwischen.',
+      meta: [
+        { label: 'Standort', value: 'Berlin, DE' },
+        { label: 'Status', value: 'Offen für neue Rollen' },
+        { label: 'Fokus', value: 'IT-Transformation · PMO' },
+      ],
+    },
+    about: {
+      kicker: 'Über mich',
+      title: 'Kurzfassung',
+      body: [
+        'Vier Jahre bei Accenture in Berlin, im Bereich IT-Transformation über verschiedene Branchen hinweg — zuletzt in einem €40M IT-Carve-out eines globalen Industriekonzerns, davor im ESG-Reporting eines europäischen Pharmaunternehmens.',
+        'Mein Hintergrund liegt in Psychologie und Computational Neuroscience, mit einem Abstecher in Data Science. Ein bisschen gemischt — hilft aber bei der menschlichen Seite solcher Projekte.',
+      ],
+    },
+    experience: {
+      kicker: 'Erfahrung',
+      title: 'Beruflicher Werdegang',
+      items: [
+        {
+          period: 'Sep 2025 — heute',
+          role: 'Berufliche Neuorientierung',
+          org: 'Berlin',
+          tag: 'Aktuell',
+          body: 'Auf der Suche nach der nächsten Rolle — offen für Consulting, PMO und Transformationsarbeit in Europa.',
+        },
+        {
+          period: 'Feb 2025 — Aug 2025',
+          role: 'Sabbatical',
+          org: '—',
+          tag: 'Pause',
+          body: 'Sechs Monate Auszeit für Reisen und Reflexion.',
+        },
+        {
+          period: 'Jul 2021 — Feb 2025',
+          role: 'Technology Consulting Analyst',
+          org: 'Accenture GmbH, Berlin',
+          tag: '3J 8M',
+          body: 'Koordination von IT-Transformationsprojekten mit Kundenkontakt. Schwerpunkt auf Governance, Projektmanagement, Zeitleisten und Anforderungen — plus Angebote und interne Präsentationen.',
+          projects: [
+            {
+              name: 'IT-Carve-out',
+              client: 'Globaler Industriekonzern',
+              note: 'Teil des PMO in einem €40M-Programm mit sechs Projekten. Häufig Kommunikationsbrücke zwischen Programmmanagement und Projektteams.',
+            },
+            {
+              name: 'Digitale Transformation',
+              client: 'Große europäische E-Commerce-Plattform',
+              note: 'Entwicklung und Umsetzung der E2E-Teststrategie für 100+ dezentrale Teams, mit Fokus auf Automatisierung und Dokumentation.',
+            },
+            {
+              name: 'ESG-Konzeption',
+              client: 'Europäisches Pharma­unternehmen',
+              note: 'Projektmanager und Datenarchitekt für ESG-Reporting. Entwicklung eines Workarounds für die Kalkulation der ESG-Metriken bei unvollständigen Quelldaten.',
+            },
+          ],
+        },
+        {
+          period: 'Mär 2018 — Apr 2020',
+          role: 'Studentische Forschungskraft',
+          org: 'Charité & Fraunhofer HHI, Berlin',
+          tag: '2J',
+          body: 'Forschung zu Machine-Learning-Anwendungen in verschiedenen Themenfeldern. Mitautor eines Papers zu VR-Nutzerverhalten (nominiert als Best Paper).',
+        },
+      ],
+    },
+    education: {
+      kicker: 'Bildung',
+      items: [
+        {
+          school: 'TU Berlin',
+          degree: 'M.Sc. Computational Neuroscience',
+          period: 'Prüfung ausstehend',
+          note: 'Masterarbeit: Maschinelles Lernen in der Demenz­vorhersage. Note 1,06 — Jahrgangs­beste.',
+        },
+        {
+          school: 'Bilkent University',
+          degree: 'B.A. Psychology',
+          period: '2008 — 2013',
+          note: 'Note 1,90.',
+        },
+        {
+          school: 'Reuter Management Training',
+          degree: 'Projekt­management­ausbildung (IPMA-C)',
+          period: 'Dez 2025 — Apr 2026',
+          note: 'Laufend.',
+        },
+      ],
+    },
+    skills: {
+      kicker: 'Skills',
+      title: 'Was ich mache',
+      groups: [
+        {
+          name: 'Projektführung',
+          items: [
+            'Projekt­management',
+            'Projekt­planung',
+            'PMO & Governance',
+            'Reporting & Entscheidungs­unterlagen',
+            'Koordination umfangreicher & komplexer Vorhaben',
+            'Agile Umsetzung',
+            'Anforderungs­management',
+            'Kommunikations­planung',
+            'Konflikt­lösung',
+            'Workshop­vorbereitung',
+          ],
+        },
+        {
+          name: 'Analytisch & fachlich',
+          items: ['Datenanalyse & Forecasting', 'E2E-Test', 'ESG', 'IT-Transformation'],
+        },
+        {
+          name: 'Werkzeuge',
+          items: ['MS PowerPoint', 'Python', 'Mural & Miro', 'Jira & Xray', 'SQL · Snowflake', 'MS Project'],
+        },
+      ],
+      certs: {
+        title: 'Zertifikate',
+        items: [
+          'Google Project Management',
+          'ICAgile Certified Professional',
+          'Workera Data Scientist',
+          'AWS Cloud Practitioner',
+        ],
+      },
+      languages: {
+        title: 'Sprachen',
+        items: [
+          { lang: 'Englisch', level: 'C2' },
+          { lang: 'Deutsch', level: 'C1' },
+          { lang: 'Türkisch', level: 'C2' },
+          { lang: 'Französisch', level: 'A1' },
+        ],
+      },
+    },
+    interests: {
+      kicker: 'Abseits der Arbeit',
+      items: [
+        {
+          title: 'Forró',
+          note: 'Tanzlehre und Veranstaltungs­organisation seit 2019. Lenkungs­ausschuss von Tome Forró Berlin e.V. seit 2025.',
+        },
+        {
+          title: 'Ultimate Frisbee',
+          note: 'Im Spiel seit 2008. Teilnahme an den Weltmeister­schaften 2014.',
+        },
+        {
+          title: 'Kraftsport & Bouldern',
+          note: 'Im Gym und an der Wand seit 2015.',
+        },
+        {
+          title: 'Spezialitäten­kaffee',
+          note: 'Auf der Suche nach der sauberen Tasse seit 2019.',
+        },
+      ],
+    },
+    contact: {
+      kicker: 'Kontakt',
+      title: 'Sprechen wir',
+      body: 'Aktuell offen für Consulting-, PMO- und IT-Transformationsrollen — Festanstellung oder projektbasiert. Am schnellsten erreichbar per E-Mail.',
+      email: 'huseyin@camalan.de',
+      cta: 'Hallo sagen',
+      links: [
+        { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
+        { label: 'E-Mail', value: 'huseyin@camalan.de', href: 'mailto:huseyin@camalan.de' },
+        { label: 'Telefon', value: '+49 176 4334 6503', href: 'tel:+4917643346503' },
+        { label: 'Ort', value: '10969 Berlin, DE' },
+      ],
+    },
+  },
+};

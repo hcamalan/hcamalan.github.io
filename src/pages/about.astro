@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { social } from '../data/social';
+---
+
+<BaseLayout title="About" description="A little about Hüseyin Camalan, outside of job titles.">
+  <section class="px-6 pb-24 pt-40 sm:px-10">
+    <div class="mx-auto max-w-2xl">
+      <p class="kicker mb-6">About</p>
+      <h1 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">A little about me</h1>
+
+      <div class="mt-10 space-y-6 text-lg leading-relaxed text-ink-2">
+        <p>
+          I'm Hüseyin — Berlin-based, with a background in psychology and computational neuroscience, and most
+          recently four years in IT transformation consulting at Accenture. I like the messy, people-heavy side
+          of getting complex projects across the finish line, which is also part of why I've started building
+          tools like <a href="/projects" class="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">ChronoKanban</a> on the side.
+        </p>
+        <p>
+          Outside of work I teach and organise forró dance, play ultimate frisbee, spend time bouldering and
+          lifting, and chase good coffee. This site is where I keep my <a href="/cv" class="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">CV</a>,
+          the things I build, and occasional <a href="/blog" class="text-ink underline decoration-line underline-offset-4 hover:decoration-accent">writing</a> about all of it.
+        </p>
+      </div>
+
+      <div class="mt-14 flex flex-col border-t border-line">
+        {
+          social.map((s) => (
+            <a
+              href={s.href}
+              target={s.href.startsWith('http') ? '_blank' : undefined}
+              rel={s.href.startsWith('http') ? 'noopener' : undefined}
+              class="group flex items-center justify-between border-b border-line py-5 transition-[padding] duration-300 hover:pl-2"
+            >
+              <span class="font-mono text-xs uppercase tracking-widest text-ink-3">{s.label}</span>
+              <span class="font-medium text-ink group-hover:text-accent-ink">{s.handle}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
