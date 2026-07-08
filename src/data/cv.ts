@@ -111,8 +111,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       kicker: 'About',
       title: 'Short version',
       body: [
-        'I spent four years at Accenture in Berlin, working on IT transformation programmes across industries — most recently in a €40M IT carve-out for a global industrial group, and earlier on ESG reporting for a European pharma company.',
-        'My background is in psychology and computational neuroscience, with some time spent in data science. A bit of a mix, but it helps with the messy, people-heavy side of transformation work.',
+        'A results-driven IT consultant with four years of experience coordinating international and cross-functional teams on complex digitalisation projects. My background in psychology and neuroscience, combined with experience in data science, lets me pair analytical precision with a human-centered approach to problem-solving.',
       ],
     },
     experience: {
@@ -135,25 +134,25 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           period: 'Jul 2021 — Feb 2025',
-          role: 'Technology Consulting Analyst',
+          role: 'Technology Consulting Analyst / Transformation Excellence Analyst',
           org: 'Accenture GmbH, Berlin',
           tag: '3y 8m',
-          body: 'Coordination of IT transformation projects with direct client contact. Focused on governance, project management, timelines and requirements, plus proposals and internal presentations.',
+          body: 'Governance and PM roles across complex IT transformations, working in international (DACH, India, Eastern Europe) and cross-functional teams. Hands-on technical work as developer, data architect, and test engineer. Led and prepared client workshops. Authored project proposals and internal assets.',
           projects: [
             {
               name: 'IT Carve-out',
               client: 'Global industrial group',
-              note: 'Part of the PMO in a €40M programme spanning six projects. Often acted as the communication bridge between programme management and project teams.',
+              note: 'Key role in the PMO of a large transformation programme spanning six projects. Significant contribution to conflict resolution between programme management and project teams.',
             },
             {
-              name: 'Digital Transformation',
+              name: 'Cloud Transformation',
               client: 'Large European e-commerce platform',
-              note: 'Designed and rolled out the end-to-end test strategy for 100+ decentralised teams, with a focus on automation and documentation.',
+              note: 'Test specialist and requirements manager for the design and rollout of the end-to-end test strategy across 100+ decentralised teams ahead of an ambitious go-live. Left behind a lasting test culture at the client, particularly around automation.',
             },
             {
               name: 'ESG Conception',
               client: 'European pharmaceutical company',
-              note: 'Project manager and data architect for ESG reporting. Built a workaround for calculating ESG metrics where source data was incomplete.',
+              note: 'Project manager and data architect for an ESG reporting conception project. Developed an innovative workaround for calculating ESG metrics where source data was incomplete.',
             },
           ],
         },
@@ -172,14 +171,14 @@ export const cv: Record<'en' | 'de', CVContent> = {
         {
           school: 'TU Berlin',
           degree: 'M.Sc. Computational Neuroscience',
-          period: 'Pending defense',
-          note: 'Thesis: Machine Learning in Dementia Prediction. Grade 1.06 — top of cohort.',
+          period: 'Oct 2014 — Mar 2020',
+          note: 'Thesis: Machine Learning in Dementia Prediction. Grade 1.9 (German scale) — "good".',
         },
         {
           school: 'Bilkent University',
           degree: 'B.A. Psychology',
-          period: '2008 — 2013',
-          note: 'Grade 1.90.',
+          period: 'Sep 2008 — Jun 2013',
+          note: 'Grade 3.94 (American GPA scale) — top of cohort.',
         },
         {
           school: 'Reuter Management Training',
@@ -295,8 +294,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       kicker: 'Über mich',
       title: 'Kurzfassung',
       body: [
-        'Vier Jahre bei Accenture in Berlin, im Bereich IT-Transformation über verschiedene Branchen hinweg — zuletzt in einem €40M IT-Carve-out eines globalen Industriekonzerns, davor im ESG-Reporting eines europäischen Pharmaunternehmens.',
-        'Mein Hintergrund liegt in Psychologie und Computational Neuroscience, mit einem Abstecher in Data Science. Ein bisschen gemischt — hilft aber bei der menschlichen Seite solcher Projekte.',
+        'Ergebnisorientierter IT-Berater mit vier Jahren Erfahrung in der Koordination internationaler und funktionsübergreifender Teams in komplexen Digitalisierungsprojekten. Durch mein Studium der Psychologie und Neurowissenschaften sowie Erfahrung in Data Science verbinde ich analytische Präzision mit einem menschenzentrierten Problemlösungsansatz.',
       ],
     },
     experience: {
@@ -319,25 +317,25 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           period: 'Jul 2021 — Feb 2025',
-          role: 'Technology Consulting Analyst',
+          role: 'Technology Consulting Analyst / Transformation Excellence Analyst',
           org: 'Accenture GmbH, Berlin',
           tag: '3J 8M',
-          body: 'Koordination von IT-Transformationsprojekten mit Kundenkontakt. Schwerpunkt auf Governance, Projektmanagement, Zeitleisten und Anforderungen — plus Angebote und interne Präsentationen.',
+          body: 'Governance- und PM-Rollen in komplexen IT-Transformationsprojekten, mit Arbeit in internationalen (DACH, Indien, Osteuropa) und funktionsübergreifenden Teams. Technischer Einsatz als Programmierer, Datenarchitekt und Testingenieur. Leitung und Vorbereitung von Kundenworkshops. Erstellung von Projektangeboten und internen Assets.',
           projects: [
             {
               name: 'IT-Carve-out',
               client: 'Globaler Industriekonzern',
-              note: 'Teil des PMO in einem €40M-Programm mit sechs Projekten. Häufig Kommunikationsbrücke zwischen Programmmanagement und Projektteams.',
+              note: 'Schlüsselrolle im PMO eines großen Transformationsprogramms mit sechs Projekten. Wichtiger Beitrag zur Konfliktlösung zwischen Programmmanagement und Projektteams.',
             },
             {
-              name: 'Digitale Transformation',
+              name: 'Cloud Transformation',
               client: 'Große europäische E-Commerce-Plattform',
-              note: 'Entwicklung und Umsetzung der E2E-Teststrategie für 100+ dezentrale Teams, mit Fokus auf Automatisierung und Dokumentation.',
+              note: 'Testspezialist und Anforderungsmanager bei Entwicklung und Umsetzung der E2E-Teststrategie für 100+ dezentrale Teams vor einem ambitionierten Go-Live. Hinterließ eine nachhaltige Testkultur beim Kunden, insbesondere im Bereich Automatisierung.',
             },
             {
               name: 'ESG-Konzeption',
               client: 'Europäisches Pharma­unternehmen',
-              note: 'Projektmanager und Datenarchitekt für ESG-Reporting. Entwicklung eines Workarounds für die Kalkulation der ESG-Metriken bei unvollständigen Quelldaten.',
+              note: 'Projektmanager und Datenarchitekt für ein Konzeptionsprojekt zu ESG-Reporting. Entwicklung eines innovativen Workarounds zur Kalkulation der ESG-Metriken bei unvollständigen Quelldaten.',
             },
           ],
         },
@@ -356,14 +354,14 @@ export const cv: Record<'en' | 'de', CVContent> = {
         {
           school: 'TU Berlin',
           degree: 'M.Sc. Computational Neuroscience',
-          period: 'Prüfung ausstehend',
-          note: 'Masterarbeit: Maschinelles Lernen in der Demenz­vorhersage. Note 1,06 — Jahrgangs­beste.',
+          period: 'Okt 2014 — Mär 2020',
+          note: 'Masterarbeit: Maschinelles Lernen in der Demenz­vorhersage. Note 1,9 (deutsche Skala) — „gut".',
         },
         {
           school: 'Bilkent University',
           degree: 'B.A. Psychology',
-          period: '2008 — 2013',
-          note: 'Note 1,90.',
+          period: 'Sep 2008 — Jun 2013',
+          note: 'Note 3,94 (amerikanische Skala) — Jahrgangs­beste.',
         },
         {
           school: 'Reuter Management Training',
