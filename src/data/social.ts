@@ -17,7 +17,7 @@ export const social: SocialLink[] = [
   },
   {
     label: 'Email',
-    handle: 'huseyin@camalan.de',
-    href: 'mailto:huseyin@camalan.de',
+    handle: 'camalanhuseyin@gmail.com',
+    href: 'mailto:camalanhuseyin@gmail.com',
   },
 ];

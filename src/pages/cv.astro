@@ -15,7 +15,8 @@ import { cv } from '../data/cv';
             <button type="button" data-lang="de" class="px-3 py-1.5 transition-colors">DE</button>
           </div>
           <a
-            href="/cv/Huseyin-Camalan-CV.pdf"
+            href="/cv/cv_hueseyin_camalan_eng.pdf"
+            data-cv="pdf-link"
             download
             class="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest text-bg transition-colors hover:bg-accent"
           >
@@ -113,9 +114,12 @@ import { cv } from '../data/cv';
     return Array.from(document.querySelectorAll(sel));
   }
 
+  const PDF_BY_LANG = { en: '/cv/cv_hueseyin_camalan_eng.pdf', de: '/cv/cv_hueseyin_camalan_deu.pdf' };
+
   function render() {
     const L = cvData[currentLang];
 
+    q('[data-cv=pdf-link]').href = PDF_BY_LANG[currentLang];
     q('[data-cv=eyebrow]').textContent = L.hero.eyebrow;
     q('[data-cv=name]').textContent = L.hero.name;
     q('[data-cv=tagline]').textContent = L.hero.tagline;
@@ -230,8 +234,15 @@ import { cv } from '../data/cv';
     cta.textContent = L.contact.cta;
     cta.href = `mailto:${L.contact.email}`;
     q('[data-cv=contact-links]').innerHTML = L.contact.links
-      .map((l) =>
-        l.href
+      .map((l) => {
+        if (l.phoneEncoded) {
+          const revealLabel = currentLang === 'de' ? 'Nummer anzeigen' : 'Show phone number';
+          return `<div class="flex items-center justify-between border-b border-line py-5" data-phone-row data-phone-encoded="${l.phoneEncoded}">
+               <span class="font-mono text-xs uppercase tracking-widest text-ink-3">${l.label}</span>
+               <button type="button" data-reveal-phone class="font-medium text-ink underline decoration-line underline-offset-4 hover:text-accent-ink hover:decoration-accent">${revealLabel}</button>
+             </div>`;
+        }
+        return l.href
           ? `<a href="${l.href}" target="${l.href.startsWith('http') ? '_blank' : '_self'}" rel="${
               l.href.startsWith('http') ? 'noopener' : ''
             }" class="group flex items-center justify-between border-b border-line py-5 transition-[padding] hover:pl-2">
@@ -241,9 +252,21 @@ import { cv } from '../data/cv';
           : `<div class="flex items-center justify-between border-b border-line py-5">
                <span class="font-mono text-xs uppercase tracking-widest text-ink-3">${l.label}</span>
                <span class="font-medium text-ink">${l.value}</span>
-             </div>`
-      )
+             </div>`;
+      })
       .join('');
+
+    qa('[data-reveal-phone]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('[data-phone-row]');
+        const number = atob(row.dataset.phoneEncoded);
+        const label = row.querySelector('span').textContent;
+        row.outerHTML = `<a href="tel:${number.replace(/\s+/g, '')}" class="group flex items-center justify-between border-b border-line py-5 transition-[padding] hover:pl-2">
+               <span class="font-mono text-xs uppercase tracking-widest text-ink-3">${label}</span>
+               <span class="font-medium text-ink group-hover:text-accent-ink">${number}</span>
+             </a>`;
+      });
+    });
 
     qa('[data-lang]').forEach((b) => {
       const active = b.dataset.lang === currentLang;

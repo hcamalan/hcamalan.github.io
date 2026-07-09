@@ -83,7 +83,7 @@ export interface CVContent {
     body: string;
     email: string;
     cta: string;
-    links: { label: string; value: string; href?: string }[];
+    links: { label: string; value?: string; href?: string; phoneEncoded?: string }[];
   };
 }
 
@@ -111,7 +111,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       kicker: 'About',
       title: 'Short version',
       body: [
-        'A results-driven IT consultant with four years of experience coordinating international and cross-functional teams on complex digitalisation projects. My background in psychology and neuroscience, combined with experience in data science, lets me pair analytical precision with a human-centered approach to problem-solving.',
+        'A results-driven IT consultant with four years of experience coordinating international and cross-functional teams on complex digitalization projects. My background in psychology and neuroscience, combined with experience in data science, helps me balance analytical rigor with a real understanding of people.',
       ],
     },
     experience: {
@@ -142,12 +142,12 @@ export const cv: Record<'en' | 'de', CVContent> = {
             {
               name: 'IT Carve-out',
               client: 'Global industrial group',
-              note: 'Key role in the PMO of a large transformation programme spanning six projects. Significant contribution to conflict resolution between programme management and project teams.',
+              note: 'Key role in the PMO of a large transformation program spanning six projects. Significant contribution to conflict resolution between program management and project teams.',
             },
             {
               name: 'Cloud Transformation',
               client: 'Large European e-commerce platform',
-              note: 'Test specialist and requirements manager for the design and rollout of the end-to-end test strategy across 100+ decentralised teams ahead of an ambitious go-live. Left behind a lasting test culture at the client, particularly around automation.',
+              note: 'Test specialist and requirements manager for the design and rollout of the end-to-end test strategy across 100+ decentralized teams ahead of an ambitious go-live. Left behind a lasting test culture at the client, particularly around automation.',
             },
             {
               name: 'ESG Conception',
@@ -161,7 +161,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
           role: 'Student Research Assistant',
           org: 'Charité & Fraunhofer HHI, Berlin',
           tag: '2y',
-          body: 'Research into machine-learning applications across different problem spaces. Co-author on a paper on VR user behaviour (nominated for Best Paper).',
+          body: 'Research into machine-learning applications across different problem spaces. Co-author on a paper on VR user behavior (nominated for Best Paper).',
         },
       ],
     },
@@ -198,7 +198,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
             'Project management',
             'Project planning',
             'PMO & governance',
-            'Reporting & decision-ready artefacts',
+            'Reporting & decision-ready artifacts',
             'Coordination of large, complex endeavours',
             'Agile delivery',
             'Requirements management',
@@ -240,7 +240,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       items: [
         {
           title: 'Forró dance',
-          note: 'Teaching and organising since 2019. Steering committee of Tome Forró Berlin e.V. since 2025.',
+          note: 'Teaching and organizing since 2019. Steering committee of Tome Forró Berlin e.V. since 2025.',
         },
         {
           title: 'Ultimate Frisbee',
@@ -260,13 +260,12 @@ export const cv: Record<'en' | 'de', CVContent> = {
       kicker: 'Contact',
       title: 'Get in touch',
       body: 'Currently open to consulting, PMO and IT transformation roles — full-time or project-based. Email is the fastest way to reach me.',
-      email: 'huseyin@camalan.de',
+      email: 'camalanhuseyin@gmail.com',
       cta: 'Say hello',
       links: [
         { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
-        { label: 'Email', value: 'huseyin@camalan.de', href: 'mailto:huseyin@camalan.de' },
-        { label: 'Phone', value: '+49 176 4334 6503', href: 'tel:+4917643346503' },
-        { label: 'Location', value: '10969 Berlin, DE' },
+        { label: 'Email', value: 'camalanhuseyin@gmail.com', href: 'mailto:camalanhuseyin@gmail.com' },
+        { label: 'Phone', phoneEncoded: 'KzQ5IDE3NiA0MzM0IDY1MDM=' },
       ],
     },
   },
@@ -294,7 +293,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       kicker: 'Über mich',
       title: 'Kurzfassung',
       body: [
-        'Ergebnisorientierter IT-Berater mit vier Jahren Erfahrung in der Koordination internationaler und funktionsübergreifender Teams in komplexen Digitalisierungsprojekten. Durch mein Studium der Psychologie und Neurowissenschaften sowie Erfahrung in Data Science verbinde ich analytische Präzision mit einem menschenzentrierten Problemlösungsansatz.',
+        'Ergebnisorientierter IT-Berater mit vier Jahren Erfahrung in der Koordination internationaler und funktionsübergreifender Teams in komplexen Digitalisierungsprojekten. Durch mein Studium der Psychologie und Neurowissenschaften sowie Erfahrung in Data Science verbinde ich analytische Genauigkeit mit einem echten Gespür für Menschen.',
       ],
     },
     experience: {
@@ -441,15 +440,14 @@ export const cv: Record<'en' | 'de', CVContent> = {
     },
     contact: {
       kicker: 'Kontakt',
-      title: 'Sprechen wir',
+      title: 'Lass uns sprechen',
       body: 'Aktuell offen für Consulting-, PMO- und IT-Transformationsrollen — Festanstellung oder projektbasiert. Am schnellsten erreichbar per E-Mail.',
-      email: 'huseyin@camalan.de',
+      email: 'camalanhuseyin@gmail.com',
       cta: 'Hallo sagen',
       links: [
         { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
-        { label: 'E-Mail', value: 'huseyin@camalan.de', href: 'mailto:huseyin@camalan.de' },
-        { label: 'Telefon', value: '+49 176 4334 6503', href: 'tel:+4917643346503' },
-        { label: 'Ort', value: '10969 Berlin, DE' },
+        { label: 'E-Mail', value: 'camalanhuseyin@gmail.com', href: 'mailto:camalanhuseyin@gmail.com' },
+        { label: 'Telefon', phoneEncoded: 'KzQ5IDE3NiA0MzM0IDY1MDM=' },
       ],
     },
   },
