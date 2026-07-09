@@ -104,7 +104,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       meta: [
         { label: 'Based in', value: 'Berlin, DE' },
         { label: 'Status', value: 'Open to new roles' },
-        { label: 'Focus', value: 'IT transformation, PMO' },
+        { label: 'Focus', value: 'IT consulting, project management, data science' },
       ],
     },
     about: {
@@ -123,7 +123,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
           role: 'Professional reorientation',
           org: 'Berlin',
           tag: 'Current',
-          body: 'Looking for the next role — open to consulting, PMO and transformation work in Europe.',
+          body: 'Looking for the next role — open to consulting, project management and IT transformation work in Europe.',
         },
         {
           period: 'Feb 2025 — Aug 2025',
@@ -182,9 +182,9 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           school: 'Reuter Management Training',
-          degree: 'Project Management Certification (IPMA-C)',
+          degree: 'Project Management Certification (IPMA-D)',
           period: 'Dec 2025 — Apr 2026',
-          note: 'In progress.',
+          note: 'Exam pending.',
         },
       ],
     },
@@ -240,11 +240,11 @@ export const cv: Record<'en' | 'de', CVContent> = {
       items: [
         {
           title: 'Forró dance',
-          note: 'Teaching and organizing since 2019. Steering committee of Tome Forró Berlin e.V. since 2025.',
+          note: 'Teaching, DJing, volunteering and organizing since 2019. Steering committee of Tome Forró Berlin e.V. since 2025.',
         },
         {
           title: 'Ultimate Frisbee',
-          note: 'Playing since 2008. Competed at the World Championships in 2014.',
+          note: 'Playing since 2008. Competed at the World Club Championships in 2014.',
         },
         {
           title: 'Strength training & bouldering',
@@ -252,20 +252,21 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           title: 'Specialty coffee',
-          note: 'Chasing clean cups since 2019.',
+          note: 'Proud owner of a hand grinder.',
         },
       ],
     },
     contact: {
       kicker: 'Contact',
       title: 'Get in touch',
-      body: 'Currently open to consulting, PMO and IT transformation roles — full-time or project-based. Email is the fastest way to reach me.',
+      body: 'Currently open to consulting, project management and IT transformation roles — full-time or project-based. Email is the fastest way to reach me.',
       email: 'camalanhuseyin@gmail.com',
       cta: 'Say hello',
       links: [
         { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
         { label: 'Email', value: 'camalanhuseyin@gmail.com', href: 'mailto:camalanhuseyin@gmail.com' },
         { label: 'Phone', phoneEncoded: 'KzQ5IDE3NiA0MzM0IDY1MDM=' },
+        { label: 'Location', value: 'Berlin, DE' },
       ],
     },
   },
@@ -286,7 +287,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       meta: [
         { label: 'Standort', value: 'Berlin, DE' },
         { label: 'Status', value: 'Offen für neue Rollen' },
-        { label: 'Fokus', value: 'IT-Transformation · PMO' },
+        { label: 'Fokus', value: 'IT-Beratung, Projektmanagement, Data Science' },
       ],
     },
     about: {
@@ -305,7 +306,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
           role: 'Berufliche Neuorientierung',
           org: 'Berlin',
           tag: 'Aktuell',
-          body: 'Auf der Suche nach der nächsten Rolle — offen für Consulting, PMO und Transformationsarbeit in Europa.',
+          body: 'Auf der Suche nach der nächsten Rolle — offen für Consulting, Projektmanagement und IT-Transformationsarbeit in Europa.',
         },
         {
           period: 'Feb 2025 — Aug 2025',
@@ -364,9 +365,9 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           school: 'Reuter Management Training',
-          degree: 'Projekt­management­ausbildung (IPMA-C)',
+          degree: 'Projekt­management­ausbildung (IPMA-D)',
           period: 'Dez 2025 — Apr 2026',
-          note: 'Laufend.',
+          note: 'Prüfung ausstehend.',
         },
       ],
     },
@@ -422,7 +423,7 @@ export const cv: Record<'en' | 'de', CVContent> = {
       items: [
         {
           title: 'Forró',
-          note: 'Tanzlehre und Veranstaltungs­organisation seit 2019. Lenkungs­ausschuss von Tome Forró Berlin e.V. seit 2025.',
+          note: 'Tanzlehre, DJ, ehrenamtliche Arbeit und Veranstaltungs­organisation seit 2019. Lenkungs­ausschuss von Tome Forró Berlin e.V. seit 2025.',
         },
         {
           title: 'Ultimate Frisbee',
@@ -434,20 +435,21 @@ export const cv: Record<'en' | 'de', CVContent> = {
         },
         {
           title: 'Spezialitäten­kaffee',
-          note: 'Auf der Suche nach der sauberen Tasse seit 2019.',
+          note: 'Stolzer Besitzer einer Handmühle.',
         },
       ],
     },
     contact: {
       kicker: 'Kontakt',
       title: 'Lass uns sprechen',
-      body: 'Aktuell offen für Consulting-, PMO- und IT-Transformationsrollen — Festanstellung oder projektbasiert. Am schnellsten erreichbar per E-Mail.',
+      body: 'Aktuell offen für Consulting-, Projektmanagement- und IT-Transformationsrollen — Festanstellung oder projektbasiert. Am schnellsten erreichbar per E-Mail.',
       email: 'camalanhuseyin@gmail.com',
       cta: 'Hallo sagen',
       links: [
         { label: 'LinkedIn', value: '/in/huseyin-camalan', href: 'https://www.linkedin.com/in/huseyin-camalan/' },
         { label: 'E-Mail', value: 'camalanhuseyin@gmail.com', href: 'mailto:camalanhuseyin@gmail.com' },
         { label: 'Telefon', phoneEncoded: 'KzQ5IDE3NiA0MzM0IDY1MDM=' },
+        { label: 'Ort', value: 'Berlin, DE' },
       ],
     },
   },
